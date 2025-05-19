@@ -3,6 +3,8 @@ dotenv.config();
 // Imports for Sum of Two Numbers
 import { findIndicesForTargetSum } from './src/services/findIndex.js';
 import { handleError } from './src/utils/errorHandler.js';
+// Imports for MongoDB Aggregation 
+import { runAggregation } from './src/services/aggregation.js';
 
 const nums = [2, 7, 11, 15];
 const target = 9;
@@ -17,3 +19,12 @@ function displayIndicesForTargetSum(nums, target) {
 }
 
 displayIndicesForTargetSum(nums, target);
+
+
+(async function main() {
+  try {
+    await runAggregation();
+  } catch (error) {
+    handleError(error);
+  }
+})();
